@@ -7,3 +7,42 @@ When creating a new password, I like designing it for easy typability. For examp
 To create a password that is easily typable by the human hand, its helpful to think of how the fingers map to the letters on a keyboard.
 
 ![Home row mapping](/images/home_row_keys.png)
+
+Choosing password characters such that the fingers move smoothly across the keyboard can make the sequence easier to type. This makes it easier to remember the password without thinking about it by increasing muscle memory. Some things that can affect typability:
+* two characters in a row that are typed by the same finger
+* a capital letter typed with the left hand followed by a character typed with the right pinky
+* favoring weaker fingers over stronger fingers
+
+## Usage
+
+```bash
+./run.sh --pattern <pattern spec>
+```
+
+## Pattern Specification
+
+The pattern specification lets the user tell the generator about his/her password typability preferences. Providing the specification as a command-line argument at runtime (as opposed to hardcoding password rules) makes the generator safer for public use.
+
+### Rules
+
+Home row keys specify which finger should be used to type the corresponding output character at that position in the pattern spec.
+
+* Left hand
+  * `a` - pinky finger
+  * `s` - ring finger
+  * `d` - middle finger
+  * `f` - pointer finger
+* Right hand
+  * `j` - pointer finger
+  * `k` - middle finger
+  * `l` - ring finger
+  * `;` - pinky finger
+
+Using the "uppercase" versions of home row characters specifies that the corresponding output character at that position in the pattern spec should be drawn from the set of alternate characters available to that finger. That is to say, capitalized letters or the secondary symbols printed on each key.
+
+### Example
+
+```bash
+$> ./run.sh --pattern KDlaksdjDkdjal;f
+IC.1,sen#8cjqo[r
+```
