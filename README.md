@@ -43,6 +43,6 @@ Using the "uppercase" versions of home row characters specifies that the corresp
 ### Example
 
 ```bash
-$> ./run.sh --pattern KDlaksdjDkdjal;f
+$> ./run.sh --pattern "KDlaksdjDkdjal;f"
 IC.1,sen#8cjqo[r
 ```

@@ -1,3 +1,4 @@
+import argparse
 import os
 import logging
 
@@ -9,7 +10,15 @@ LOG_PATH = "logs"
 def main():
     utils.configure_rolling_logger(os.path.join(LOG_PATH, "application.log"))
 
-    generator.Generator(8).generate()
+    args = parse_arguments()
+
+    generator.Generator.generate(args.pattern)
+
+def parse_arguments():
+    parser = argparse.ArgumentParser()
+    parser.add_argument('--pattern', required=True)
+
+    return parser.parse_args()
 
 if __name__ == "__main__":
     main()
