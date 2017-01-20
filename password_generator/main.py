@@ -12,7 +12,7 @@ def main():
 
     args = parse_arguments()
 
-    generator.Generator.generate(args.pattern)
+    print generator.Generator.generate(args.pattern)
 
 def parse_arguments():
     parser = argparse.ArgumentParser()
